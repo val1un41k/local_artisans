@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.artisans_app.app.components.ButtonComponent
 import com.example.artisans_app.app.components.ClickableTextComponent
+import com.example.artisans_app.app.components.ClickableTextResetPasswordArtisan
 import com.example.artisans_app.app.components.HeadingTextComponentWithoutLogout
 import com.example.artisans_app.app.components.PasswordTextFieldComponent
 import com.example.artisans_app.app.components.myTextFireldContent
@@ -44,7 +45,7 @@ fun ArtisanLoginScreen() {
             Spacer(modifier = Modifier.height(40.dp))
 
             //TODO Create Component TextResetPasswordArtisan
-            ClickableTextComponent(value = "First time user?")
+           // ClickableTextResetPasswordArtisan(value = "Forgot Your Password?", route = "ArtisanResetPasswordScreen")
         }
 
 

@@ -204,7 +204,7 @@ fun PasswordTextFieldComponent(labelValue: String){
 }
 
 @Composable
-fun ClickableTextComponent(value: String){
+fun ClickableTextComponent(value: String, onTextSelected: (String) -> Unit){
     //Add in contitions for the function (, onTextSelected: (String) -> Unit)
     val innitialText = "if you First Time user, please "
     val toRegister = "register"
@@ -228,13 +228,36 @@ fun ClickableTextComponent(value: String){
         //which part of the text was clicked
         annotatedString.getStringAnnotations(offset,offset).firstOrNull()?.also { span ->
             Log.d("ClickableTextComponent", "{$span")
-          /*  if span.tag == toRegister){
+           if (span.tag == toRegister){
             onTextSelected(span.item)
           }
-
-            */
+            if (span.tag == toResetPassword){
+                onTextSelected(span.item)
+            }
         }
 
+    })
+}
+
+@Composable
+fun ClickableTextResetPasswordArtisan(value: String , onTextSelected: (String) -> Unit){
+    val innitianText = "If you forgot your Password, please click "
+    val toResetPassword = " here"
+
+    val annotatedString = buildAnnotatedString {
+        append(innitianText)
+        withStyle(style = SpanStyle(color = Primary)){
+            pushStringAnnotation(tag = "here", annotation = toResetPassword)
+            append(toResetPassword)
+        }
+    }
+    ClickableText(text = annotatedString, onClick = {offset ->
+        annotatedString.getStringAnnotations(offset,offset).firstOrNull()?.also { span ->
+            Log.d("ClickableTextComponent", "{$span")
+            if (span.tag == toResetPassword){
+                onTextSelected(span.item)
+            }
+        }
     })
 }
 

@@ -40,7 +40,7 @@ fun loginScreenForCustomer() {
             //TODO change to CustomerLoginButton Component
             ButtonComponent(value = "Login")
             Spacer(modifier = Modifier.height(40.dp))
-            ClickableTextComponent(value = "First time user?")
+           // ClickableTextComponent(value = "First time user?")
         }
     }
 }
