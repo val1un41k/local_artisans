@@ -1,6 +1,7 @@
 package com.example.artisans_app.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,13 +27,14 @@ fun HomeScreen() {
     )
     {
         HeadingTextComponentWithoutLogout(value = "Application Home Screen")
-        Column(modifier = Modifier.fillMaxSize()) {
-            Spacer(modifier = Modifier.height(80.dp))
-
+        Column(modifier = Modifier
+            .fillMaxSize(),
+            Arrangement.Center
+        ) {
             Spacer(modifier = Modifier.height(80.dp))
             //TODO Add Component Customer User
             ButtonComponent(value = "Customer User")
-        Spacer (modifier = Modifier.height(60.dp))
+        Spacer (modifier = Modifier.height(120.dp))
             //TODO Add Component Craft Maket User
         ButtonComponent(value = "Craft Maker User")
 

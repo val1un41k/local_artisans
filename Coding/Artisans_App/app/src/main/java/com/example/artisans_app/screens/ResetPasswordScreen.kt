@@ -1,6 +1,7 @@
 package com.example.artisans_app.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,9 +25,9 @@ fun ResetPasswordScreen() {
             .background(Color.White)
             .padding(28.dp),
     ){
-    Column(Modifier.fillMaxSize()){
         HeadingTextComponentWithoutLogout(value = "Reset Password Screen")
-        Spacer(modifier = Modifier.height(80.dp))
+    Column(Modifier.fillMaxSize(),
+        Arrangement.Center){
         //TODO Add Component Email and address per registration
         myTextFireldContent(labelValue = "Email and address per registration")
         Spacer(modifier = Modifier.height(80.dp))

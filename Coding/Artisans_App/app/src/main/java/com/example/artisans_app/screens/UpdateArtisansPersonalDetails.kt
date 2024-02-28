@@ -10,10 +10,17 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
@@ -27,6 +34,9 @@ import com.example.artisans_app.R
 import com.example.artisans_app.app.components.ButtonComponent
 import com.example.artisans_app.app.components.HeadingTextComponentWithLogOut
 import com.example.artisans_app.app.components.myTextFireldContent
+import com.example.artisans_app.ui.theme.ColorSecndary
+import com.example.artisans_app.ui.theme.ComponentsShapes
+import com.example.artisans_app.ui.theme.Primary
 
 @Composable
 fun UpdateArtisansPersonalDetails() {
@@ -37,28 +47,41 @@ fun UpdateArtisansPersonalDetails() {
             .padding(28.dp)
     ) {
         Column(
-            modifier = Modifier.fillMaxSize()
         ) {
             HeadingTextComponentWithLogOut(value = "Update Artisan's Personal / Business Details")
+            //TODO Create Component
+            Row() {
+                Column() {
+                    ModifyArtisanDetailsTextField(labelValue = "Artisan's Name")
+                    ModifyArtisanDetailsTextField(labelValue = "Artisan's Surname")
+                }
+                Column(){
+                    Spacer(modifier = Modifier.height(10.dp))
+                    ButtonComponent(value = "Update")
+            }
 
-            myTextFireldContent(labelValue = "Artisan's Name")
-            myTextFireldContent(labelValue = "Artisan's Surname")
-            Spacer(modifier = Modifier.height(5.dp))
-            ButtonComponent(value = "Update")
-            Spacer(modifier = Modifier.height(5.dp))
+            }
 
-            myTextFireldContent(labelValue = "Artisan mobile number")
             Spacer(modifier = Modifier.height(5.dp))
-            ButtonComponent(value = "Update")
-            Spacer(modifier = Modifier.height(5.dp))
+                Row() {
+                    Column() {
+                        ModifyArtisanDetailsTextField(labelValue = "Artisan mobile number")
+                        Spacer(modifier = Modifier.height(5.dp))
+                    }
+                    Column() {
+                        Spacer(modifier = Modifier.height(10.dp))
+                        ButtonComponent(value = "Update")
 
+                    }
+                }
+            Spacer(modifier = Modifier.height(10.dp))
                 Text(
                     text = "Artisan Photo",
                     modifier = Modifier
                         .fillMaxWidth()
                         .heightIn(),
                     style = TextStyle(
-                        fontSize = 17.sp,
+                        fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
                         fontStyle = FontStyle.Normal
                     ),
@@ -67,7 +90,7 @@ fun UpdateArtisansPersonalDetails() {
                 )
 
                 ButtonComponent(value = "Upload")
-            Spacer(modifier = Modifier.height(5.dp))
+            Spacer(modifier = Modifier.height(10.dp))
 
                 Text(
                     text = "Business Venue Address",
@@ -75,21 +98,30 @@ fun UpdateArtisansPersonalDetails() {
                         .fillMaxWidth()
                         .heightIn(),
                     style = TextStyle(
-                        fontSize = 17.sp,
+                        fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
                         fontStyle = FontStyle.Normal
                     ),
                     color = colorResource(id = R.color.black),
                     textAlign = TextAlign.Center
                 )
-                Spacer(modifier = Modifier.height(5.dp))
-                myTextFireldContent(labelValue = "Street Address")
-                Spacer(modifier = Modifier.height(5.dp))
-                myTextFireldContent(labelValue = "Logitude")
-                Spacer(modifier = Modifier.height(5.dp))
-                myTextFireldContent(labelValue = "Latitude")
-                Spacer(modifier = Modifier.height(5.dp))
-                ButtonComponent(value = "Update")
+            Row(){
+                Column(){
+                    Spacer(modifier = Modifier.height(5.dp))
+                    ModifyArtisanDetailsTextField(labelValue = "Street Address")
+                    Spacer(modifier = Modifier.height(5.dp))
+                    ModifyArtisanDetailsTextField(labelValue = "Logitude")
+                    Spacer(modifier = Modifier.height(5.dp))
+                    ModifyArtisanDetailsTextField(labelValue = "Latitude")
+
+                }
+                Column(){
+                    Spacer(modifier = Modifier.height(10.dp))
+                    ButtonComponent(value = "Update")
+                }
+            }
+
+
 
 
                 Spacer(modifier = Modifier.height(5.dp))
@@ -98,7 +130,7 @@ fun UpdateArtisansPersonalDetails() {
 
 
 
-            
+
         }
     }
 }
@@ -108,3 +140,22 @@ fun UpdateArtisansPersonalDetails() {
 fun UpdateArtisansPersonalDetailsPreview() {
     UpdateArtisansPersonalDetails()
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+    fun ModifyArtisanDetailsTextField(labelValue: String){
+        val textValue = remember { mutableStateOf("") }
+        OutlinedTextField(
+            modifier = Modifier.clip(ComponentsShapes.small),
+            label = {Text(text = labelValue)},
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                containerColor = ColorSecndary,
+                focusedBorderColor = Primary,
+                focusedLabelColor = Primary,
+                cursorColor = Primary,
+            ),
+            keyboardOptions = KeyboardOptions.Default,
+            value = textValue.value,
+            onValueChange = {textValue.value = it},
+        )
+    }

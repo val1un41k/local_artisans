@@ -1,6 +1,7 @@
 package com.example.artisans_app.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -25,11 +26,9 @@ fun loginScreenForCustomer() {
             .background(Color.White)
             .padding(28.dp),
     ) {
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize(),
+            Arrangement.Center) {
         HeadingTextComponentWithoutLogout(value = "Login Screen For Customer")
-
-        Spacer(modifier = Modifier.height(40.dp))
-
 
             myTextFireldContent(labelValue = "User Name")
             PasswordTextFieldComponent(labelValue = "Password")
