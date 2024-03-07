@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.artisans_app.screens.ArtisanLoginScreen
 import com.example.artisans_app.screens.ArtisansHomeScreen
+import com.example.artisans_app.screens.CustomerHomeDashboardScreen
 import com.example.artisans_app.screens.HomeScreen
 import com.example.artisans_app.screens.loginScreenForCustomer
 
@@ -45,13 +46,13 @@ fun loginArtisanNavigation (){
 
 }
 @Composable
-fun navigationArtisan (){
+fun loginCustomerNavigation (){
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = "")
     {
-        composable(route = "ArtisanLoginScreen"){
-            ArtisanLoginScreen(navController)
+        composable(route = "CustomerHomeDashboardScreen"){
+            CustomerHomeDashboardScreen(navController)
         }
     }
 }

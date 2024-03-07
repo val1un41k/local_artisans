@@ -58,5 +58,5 @@ fun ArtisansHomeScreen(navController: NavHostController) {
 @Preview
 @Composable
 fun ArtisansHomeScreenPreview(){
-    ArtisansHomeScreen(navController)
+   // ArtisansHomeScreen(navController)
 }

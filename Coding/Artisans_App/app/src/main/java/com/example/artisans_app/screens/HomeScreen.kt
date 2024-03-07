@@ -68,7 +68,13 @@ fun PreviewHomeScreen() {
 fun ButtonCustomerUser(value: String, navController: NavHostController){
     Button(
         onClick = { /*TODO*/
-                  navController.navigate("loginScreenForCustomer")},
+                  navController.navigate("loginScreenForCustomer"){
+                      popUpTo("HomeScreen"){
+                            inclusive = true
+                      }
+                  }
+
+                  },
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(48.dp),
@@ -95,7 +101,11 @@ fun ButtonCustomerUser(value: String, navController: NavHostController){
 fun ButtonCraftMakerUser(value: String, navController: NavHostController){
     Button(
         onClick = { /*TODO*/
-                  navController.navigate("ArtisanLoginScreen")},
+                  navController.navigate("ArtisanLoginScreen"){
+                      popUpTo("HomeScreen"){
+                          inclusive = true}
+                  }
+                  },
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(48.dp),
