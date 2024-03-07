@@ -52,6 +52,10 @@ android {
 }
 
 dependencies {
+
+    val nav_version = "2.7.0"
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
     implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
     implementation("com.google.firebase:firebase-analytics")
 

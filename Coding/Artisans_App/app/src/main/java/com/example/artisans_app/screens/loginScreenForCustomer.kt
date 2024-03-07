@@ -13,14 +13,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.artisans_app.app.components.ButtonComponent
-import com.example.artisans_app.app.components.ClickableTextComponent
 import com.example.artisans_app.app.components.HeadingTextComponentWithoutLogout
 import com.example.artisans_app.app.components.PasswordTextFieldComponent
 import com.example.artisans_app.app.components.myTextFireldContent
 
 @Composable
-fun loginScreenForCustomer() {
+fun loginScreenForCustomer(navController: NavHostController) {
     Surface(
         modifier = Modifier.fillMaxSize()
             .background(Color.White)
@@ -47,5 +47,5 @@ fun loginScreenForCustomer() {
 @Preview
 @Composable
 fun PreviewloginScreenForCustomer() {
-    loginScreenForCustomer()
+  //  loginScreenForCustomer(navController)
 }

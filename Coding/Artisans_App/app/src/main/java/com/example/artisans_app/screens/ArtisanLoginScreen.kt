@@ -12,15 +12,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.artisans_app.app.components.ButtonComponent
-import com.example.artisans_app.app.components.ClickableTextComponent
-import com.example.artisans_app.app.components.ClickableTextResetPasswordArtisan
 import com.example.artisans_app.app.components.HeadingTextComponentWithoutLogout
 import com.example.artisans_app.app.components.PasswordTextFieldComponent
+import com.example.artisans_app.app.components.loginArtisanNavigation
 import com.example.artisans_app.app.components.myTextFireldContent
 
 @Composable
-fun ArtisanLoginScreen() {
+fun ArtisanLoginScreen(navController: NavHostController) {
+    loginArtisanNavigation()
     Surface(
         modifier = Modifier
             .fillMaxSize()
@@ -55,5 +56,7 @@ fun ArtisanLoginScreen() {
 @Preview
 @Composable
 fun PreviewArtisanLoginScreen() {
-    ArtisanLoginScreen()
+  //  ArtisanLoginScreen()
 }
+
+@Composable

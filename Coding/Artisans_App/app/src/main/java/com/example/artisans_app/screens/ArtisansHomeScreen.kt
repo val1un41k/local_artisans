@@ -12,12 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.artisans_app.app.components.ButtonComponent
 import com.example.artisans_app.app.components.HeadingTextComponentWithLogOut
 
 
 @Composable
-fun ArtisansHomeScreen (){
+fun ArtisansHomeScreen(navController: NavHostController) {
     Surface(
         Modifier
             .fillMaxSize()
@@ -57,5 +58,5 @@ fun ArtisansHomeScreen (){
 @Preview
 @Composable
 fun ArtisansHomeScreenPreview(){
-    ArtisansHomeScreen()
+    ArtisansHomeScreen(navController)
 }
