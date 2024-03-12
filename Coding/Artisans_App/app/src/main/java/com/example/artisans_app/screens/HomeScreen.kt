@@ -91,7 +91,7 @@ fun ButtonCustomerUser(value: String, navController: NavHostController){
             contentAlignment = Alignment.Center
         ){
             Text(text = value,
-                fontSize = 16.sp,
+                fontSize = 20.sp,
                 fontWeight = FontWeight.Bold)
         }
     }
@@ -122,7 +122,7 @@ fun ButtonCraftMakerUser(value: String, navController: NavHostController){
             contentAlignment = Alignment.Center
         ){
             Text(text = value,
-                fontSize = 16.sp,
+                fontSize = 20.sp,
                 fontWeight = FontWeight.Bold)
         }
     }

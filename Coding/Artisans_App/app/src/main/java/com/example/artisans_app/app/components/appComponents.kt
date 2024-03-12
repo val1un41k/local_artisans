@@ -15,14 +15,11 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Face
+
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -42,8 +39,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
+
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
@@ -53,8 +49,6 @@ import com.example.artisans_app.ui.theme.ColorSecndary
 import com.example.artisans_app.ui.theme.ComponentsShapes
 import com.example.artisans_app.ui.theme.Primary
 
-class appComponents {
-}
 
 @Composable
 fun NormalTextComponent(value: String){
@@ -181,8 +175,6 @@ fun myTextFireldContent(labelValue: String){
 fun PasswordTextFieldComponent(labelValue: String){
     val password = remember {
         mutableStateOf("") }
-    val passwordVisible = remember {
-        mutableStateOf(false) }
 
     OutlinedTextField(
         modifier = Modifier
@@ -223,6 +215,7 @@ fun ClickableTextComponent(value: String, onTextSelected: (String) -> Unit){
             pushStringAnnotation(tag = "here", annotation = toResetPassword)
             append(toResetPassword)
         }
+        append(andText2)
     }
     ClickableText(text = annotatedString, onClick = {offset ->
         //which part of the text was clicked
